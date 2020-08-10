@@ -1,0 +1,104 @@
+doctype html
+//
+  Projection by TEMPLATED
+  templated.co @templatedco
+  Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+html
+  head
+    title EXPENSE MANAGER
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='assets/css/main.css')
+  body
+    // Header
+    header#header
+      .inner
+        a.logo(href='/home')
+          strong Expense
+          |  Manager
+        nav#nav
+          a(href='/home') Home
+          a(href='generic.html') About
+          a(href='/logout') Log Out
+        a.navPanelToggle(href='#navPanel')
+          span.fa.fa-bars
+    // Banner
+    section#banner
+      .inner
+        
+        .flex
+          div
+            
+            h3 INCOME
+            strong  #{income} 
+            p Income in this month
+            a.button(href='/incomeadd') ADD INCOME
+          div
+            
+            h3 EXPENSE
+            strong  #{expense} 
+            p Expense in this month
+            a.button(href='/expenseadd') Add Expense
+          div
+           
+            h3 BALANCE
+            strong  #{balance} 
+            p Make a budjet
+            
+            
+        BR
+        BR    
+        footer
+             a.button(href='/overview') OVERVIEW
+             p An Overview
+         
+    // Three
+    section#three.wrapper.align-center
+      .inner
+        .flex.flex-2
+          article
+            
+            header
+              h3
+                | Income History
+                br
+                |  
+            p
+              | 
+              
+            footer
+              a.button(href='/incomeview') View
+          article
+            
+            header
+              h3
+                | Expense History
+                br
+                
+            p
+              | 
+            footer
+              a.button(href='/expenseview') View
+    // Footer
+    footer#footer
+      .inner
+        h3 Get in touch #{msg}
+        form(action='contact', method='post')
+          
+          .field
+            label(for='message') Message
+            textarea#message(name='message', rows='6', placeholder='Message')
+          ul.actions
+            li
+              input.button.alt(value='Send Message', type='submit')
+        .copyright
+          | © Untitled. Design: 
+          a(href='https://templated.co') TEMPLATED
+          | . Images: 
+          a(href='https://unsplash.com') Unsplash
+          | .
+    // Scripts
+    script(src='/assets/js/jquery.min.js')
+    script(src='/assets/js/skel.min.js')
+    script(src='/assets/js/util.js')
+    script(src='/assets/js/main.js')

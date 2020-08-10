@@ -1,0 +1,46 @@
+html
+  head
+    title
+      | HOME
+    style(type='text/css').
+      .bd
+      {
+      background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("/dm.jpeg");
+      background-size: cover;
+      font-family: georgia,garamond,serif;
+      }
+      .ab
+      {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 30px;
+      text-align: center;
+      margin-top: 30px;
+      color: white;
+      color: #fff;
+      top: 35%;
+      position: absolute;
+      }
+      .ab input[type= "submit"]
+      {
+      border: none;
+      outline: none;
+      height: 40px;
+      width: 180px;
+      background: green;
+      color: #fff;
+      font-size: 25px;
+      }
+      b
+      {
+      font-family: cursive;
+      font-weight: bolder;
+      }
+  body.bd
+    // ?php include("header.php"); ?
+    .ab
+      p
+        | Personal finance management is an important part of peoples lives. However, everyone does not have the knowledge or time to manage their finances in a proper manner. And, even if a person has time and knowledge, they do not bother with tracking their expenses as they find it tedious and time-consuming. Now, you dont have to worry about managing your expenses, as you can get access to an
+        b  EXPENSE MANAGER
+        |  that will help in the active management of your finances.
+      a(href='/login')
+        input(type='submit', name='submit', value='Get Started')

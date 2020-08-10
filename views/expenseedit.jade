@@ -1,0 +1,103 @@
+html
+  head
+    style(type='text/css').
+      .body
+      {
+      background-color: steelblue;
+      }
+      .heading
+      {
+      margin-top: 120px;
+      text-align: center;
+      font-weight: bolder;
+      font-size: 30px;
+      margin-bottom: 100px;
+      }
+      .main
+      {
+      color: white;
+      margin-top: 100px;
+      font-size: 30px;
+      }
+      .main input
+      {
+      width: 100px;
+      }
+      .main input[type= "text"]
+      {
+      color: white;
+      border: none;
+      background: transparent;
+      outline: none;
+      text-align: center;
+      font-size: 30px;
+      }
+      .main input[type= "date"]
+      {
+      width: 150px;
+      background: transparent;
+      height: 30px;
+      }
+      .selects
+      {
+      color: white;
+      margin-top: 75px;
+      font-size: 25px;
+      }
+      .selects select
+      {
+      border: none;
+      background: transparent;
+      width: 300px;
+      font-size: 30px;
+      }
+      .selects input[type= "submit"]
+      {
+      font-weight: bolder;
+      font-size: 25px;
+      height: 40px;
+      width: 190px;
+      background-color: powderblue;
+      border: none;
+      }
+  body.body
+    // ?php include("header.php") ?
+    form(action='/expenseedit', method='POST')
+      .heading
+        h1
+          | EXPENDITURE
+        .main
+          input(name='id', type='hidden', required='true', value=expense.id)
+          | ADD AMOUNT: 
+          input(type='text', name='amount', placeholder='0', required='required', value=expense.amount)
+          |  INR
+          br
+          br
+          | Date:   
+          input(type='date', name='date', required='required', value=expense.date)
+        .selects
+          | CATEGORY  
+          select(name='category', required='required', value=expense.category)
+            option None
+            option Entertaiment
+            option Food
+            option Gas & Electrical
+            option Housing
+            option Insurance
+            option investment
+            option LIQ
+            option Recharge
+            option Shopping
+            option Transportion
+            option Vehicle
+            
+          br
+          br
+          | METHOD  
+          select(name='method', required='required', value=expense.method)
+            option Cash
+            option  Credit Card
+          br
+          br
+          br
+          input(type='submit', name='submit', value='ADD')

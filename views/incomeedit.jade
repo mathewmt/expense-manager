@@ -1,0 +1,73 @@
+html
+  head
+    style(type='text/css').
+      .body
+      {
+      background-color: steelblue;
+      }
+      .heading
+      {
+      margin-top: 120px;
+      text-align: center;
+      font-weight: bolder;
+      font-size: 30px;
+      margin-bottom: 100px;
+      }
+      .main
+      {
+      color: white;
+      margin-top: 100px;
+      font-size: 30px;
+      }
+      .main input
+      {
+      width: 100px;
+      }
+      .main input[type= "text"]
+      {
+      color: white;
+      border: none;
+      background: transparent;
+      outline: none;
+      text-align: center;
+      font-size: 30px;
+      }
+      .main input[type= "date"]
+      {
+      width: 150px;
+      height:30px;
+      background-color: transparent;
+      }
+      .selects
+      {
+      color: white;
+      margin-top: 25px;
+      font-size: 25px;
+      }
+      .selects input[type= "submit"]
+      {
+      font-weight: bolder;
+      font-size: 25px;
+      height: 40px;
+      width: 190px;
+      background-color: powderblue;
+      border: none;
+      }
+  body.body
+    form(action='/incomeedit', method='POST')
+      .heading
+        h1
+          | INCOME
+        .main
+          input(name='id', type='hidden', required='true', value=income.id)
+          | ADD AMOUNT: 
+          input(type='text', name='amount', placeholder='0', required='required', value=income.amount)
+          |  INR
+          br
+          br
+          | Date:   
+          input(type='date', name='date', required='required', value=income.date)
+        .selects
+          br
+          br
+          input(type='submit', name='submit', value='ADD')

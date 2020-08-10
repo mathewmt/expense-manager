@@ -1,0 +1,70 @@
+doctype html
+html(lang='en')
+  head
+    title admin
+  style(type='text/css').
+    .head
+    {
+    height: 70px;
+    background-color: #d3d3d3;
+    font-size: 50px;
+    padding-bottom: 5px;
+    margin-bottom: 0px;
+    }
+    .ex
+    {
+    color:  #800000;
+    font-family: cursive;
+    }
+    .ma
+    {
+    color: #000080;
+    font-family: fantasy;
+    }
+    .row
+    {
+    background-color: #c0c0c0;
+    }
+    .mainnav
+    {
+    float: right;
+    list-style: none;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    }
+    .bar
+    {
+    background-color: #d3d3d3;
+    }
+    .mainnav li
+    {
+    display: inline-block;
+    }
+    .mainnav li a
+    {
+    color: white;
+    text-decoration: none;
+    padding: 5px 30px;
+    font-size: 17px;
+    }
+    .mainnav li a:hover
+    {
+    border: 1px solid white;
+    }
+.head
+  img(src='images/logo.png', width='200', height='70')
+  b.ex EXPENSE
+  b.ma  MANAGER
+.row
+  .bar
+    ul.mainnav
+      li
+        a(href='about.php') ABOUT
+      li
+        a(href='') HELP
+      li
+        a(href='') FAQ
+      li
+        a(href='feedback.php') FEEDBACK
+
+   block content

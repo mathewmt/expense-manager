@@ -1,0 +1,201 @@
+html
+  head
+    style(type='text/css').
+      .bdy
+      {
+      background-color: #a0a5a5;
+      }
+      .maindiv div
+      {
+      display: inline-block;
+      }
+      .sidebar
+      {
+      background-color: silver;
+      width: 130px;
+      height: 100px;
+      }
+      .plogo
+      {
+      background-color: #f5f5f3;
+      margin-top: 25px;
+      }
+      .ab
+      {
+      font-size: 22px;
+      padding : 5px;
+      }
+      .ab a
+      {
+      color: black;
+      text-decoration: none;
+      padding: 5px 30px;
+      margin-bottom: 5px;
+      }
+      .xy
+      {
+      margin-top: 30px;
+      margin-left: 0px;
+      align-items: center;
+      }
+      .xy div
+      {
+      display: inline-block;
+      float: left !important;
+      }
+      .sidebar a
+      {
+      text-decoration: none;
+      color: black;
+      font-size: 18px;
+      }
+      .exp
+      {
+      margin-top: 2px;
+      margin-left: 300px;
+      border-radius: 12px;
+      height: 90px;
+      width: 250px;
+      background-color: red;
+      text-align: center;
+      font-size: 30px;
+      }
+      .inc
+      {
+      margin-top: 2px;
+      margin-left: 90px;
+      border-radius: 12px;
+      height: 90px;
+      width: 250px;
+      background-color: green;
+      text-align: center;
+      font-size: 25px;
+      }
+      
+      .uv div
+      {
+      display: inline-block;
+      }
+      .addinc
+      {
+      text-align: center;
+      margin-top: 40px;
+      margin-left: 300px;
+      border-radius: 12px;
+      height: 90px;
+      width: 250px;
+      font-size: 25px;
+      text-decoration: none;
+      color: black;
+      }
+      .addinc a
+      {
+      color: black;
+      text-decoration: none;
+      }
+      .addexp
+      {
+      text-align: center;
+      margin-top: 40px;
+      margin-left: 90px;
+      border-radius: 12px;
+      height: 90px;
+      width: 250px;
+      font-size: 25PX;
+      }
+      .addexp a
+      {
+      text-decoration: none;
+      color: black;
+      }
+      .ab div
+      {
+      display: inline-block;
+      }
+      .inhis
+      {
+      text-align: center;
+      margin-top: 40px;
+      margin-left: 300px;
+      border-radius: 12px;
+      height: 90px;
+      width: 250px;
+      }
+      .exphis
+      {
+      text-align: center;
+      margin-top: 40px;
+      margin-left: 90px;
+      border-radius: 12px;
+      height: 90px;
+      width: 250px;
+      }
+  body.bdy
+    
+    br
+    br
+    .sidebar
+      a(href='profile.php')
+        img(src='images/plogo.jpg', width='50', height='50')
+      
+      br
+      br
+      a(href='/logout') Log Out
+    //
+      <div class="xy">
+      <a href="income.php">add income</a>
+      <a href="expense.php"> add expense</a>
+      <a href="incomeselection.php">history</a>
+      <a href="expenseselection.php">expense history</a>
+      <br>
+      </div>
+    .xy
+      .exp
+        | TOTAL INCOME
+        br
+        //
+          ?php
+          include_once("connection.php");
+          $userid= $_SESSION['id'];
+          $date= date("Y-m-d");
+          $month =  date('F', strtotime($date));
+          $year =  date('Y', strtotime($date));
+          $result =mysql_query("SELECT SUM(amount) FROM income WHERE month='$month' AND year= '$year' AND userid= '$userid' ");
+          $sum= mysql_fetch_array($result);
+          echo $sum[0];
+          ?
+      .inc
+        | CURRENT EXPENSE
+        br
+        //
+          ?php
+          include_once("connection.php");
+          $userid= $_SESSION['id'];
+          $date= date("Y-m-d");
+          $month =  date('F', strtotime($date));
+          $year =  date('Y', strtotime($date));
+          $result =mysql_query("SELECT SUM(amount) FROM expense WHERE month='$month' AND year= '$year' AND userid= '$userid' ");
+          $sum= mysql_fetch_array($result);
+          echo $sum[0];
+          ?
+    
+     .uv
+       .addinc
+          figure
+            a(href='/incomeadd')
+              img(src='images/addinimg.jpg', width='90', height='90')
+              figcaption ADD INCOME
+       .addexp
+          a(href='/expenseadd')
+            img(src='images/addexpimg.jpg', width='90', height='90')
+            figcaption ADD EXPENSE
+    .ab
+      .inhis
+        figure
+          a(href='/incomeview')
+            img(src='images/inchis.jpg', width='90', height='90')
+            figcaption  INCOME HISTORY
+      .exphis
+        a(href='/expenseview')
+          img(src='images/exphis.jpg', width='90', height='90')
+          figcaption EXPENSES HISTORY
